@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 222 80% 3%; /* Darkest Blue */
+    --foreground: 210 40% 98%; /* Almost White */
+
+    --card: 222 80% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 80% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%; /* Bright Blue for buttons */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%; /* Lighter blue for secondary elements */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  min-height: 100vh;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+/* Small utilities and subtle animations */
+@layer utilities {
+  .glass-card {
+    /* Dark glass effect */
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(var(--border));
+  }
+  .brand-gradient {
+    background: linear-gradient(
+      90deg,
+      rgba(99, 102, 241, 1) 0%,
+      rgba(6, 182, 212, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .soft-glow {
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+  }
+  /* Unified dark input styles */
+  .input-dark {
+    background-color: #0f1419; /* matches page background */
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 0.5rem 0.75rem; /* 8px 12px */
+  }
+  .input-dark::placeholder {
+    color: rgb(156 163 175); /* gray-400 */
+  }
+  .input-dark:focus {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-color: hsl(var(--ring));
+  }
+  .label-muted { color: rgb(209 213 219); } /* gray-300 */
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.logo-bounce {
+  animation: floaty 3.5s ease-in-out infinite;
+}

@@ -1,0 +1,12 @@
+add and delete items in admin panel
+
+option no 1 show the security office number and location
+option no 2 add a chat
+
+
+
+
+tech stack that we are using
+nextjs(react for frontent)
+nodejs exprss for frontend
+mongoose - a mongodb wrapper for database access
